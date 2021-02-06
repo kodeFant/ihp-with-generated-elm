@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run-dev-elm": "parcel watch elm/index.js --out-dir static/elm",
-    "start": "echo Use IHP\\'s ./start script instead. && exit 1",
-    "build": "parcel build elm/index.js --out-dir static/elm"
+    "run-dev-elm": "npm run gen-types && parcel watch elm/index.js --out-dir static/elm",
+    "build": "parcel build elm/index.js --out-dir static/elm",
+    "gen-types": "nix-shell --run './Application/Script/GenerateElmTypes.hs'"
   },
   "repository": {
     "type": "git",

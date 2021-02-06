@@ -6,10 +6,16 @@ function initializeWidgets() {
   const elmNodes = document.querySelectorAll(".elm");
   elmNodes.forEach((node) => {
     const app = Elm.Main.init({
-      node
+      node,
+      flags: getFlags(node.dataset.flags),
     });
     // Write ports below this comment
   });
+}
+
+// Parse the JSON from IHP or just pass null if there is no flags data
+function getFlags(data) {
+  return data ? JSON.parse(data) : null;
 }
 
 // Initializes Elm on page load
